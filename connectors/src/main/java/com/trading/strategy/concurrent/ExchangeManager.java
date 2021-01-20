@@ -21,31 +21,7 @@ import java.util.stream.Collectors;
 
 @Slf4j
 public class ExchangeManager {
-    private static final Duration MAX_TIME_IN_CACHE = Duration.ofSeconds(20);
-    private final AtomicLong incrementInitialDelay = new AtomicLong(Duration.ofSeconds(5).toMillis());
-    private Timer refreshTimer = new Timer();
-
-    private Map<String, ScheduledExecutorService> balanceExecutors = new HashMap<>();
-    private Map<String, ScheduledExecutorService> openOrderExecutors = new HashMap<>();
-    private static final String DATABASE_NAME = "stoppedexchanges";
-    private static final String DISABLED_CURRENCIES_DB = "disabled.currencies";
-    private static final String ARBITRAGE_DB = "arbitrage";
-    private List<StoppedExchanges> stoppedExchangesInfo = new ArrayList<>();
-
-    private List<String> pairs;
-    private Set<String> stoppedExchanges = new HashSet<>();
-    private Set<String> exchangesWithStoppedOrderBook = new HashSet<>();
-    private Map<String, StreamingExchange> streamingExchangeCache = new HashMap<>();
-    private Map<String, StreamingExchange> streamingExchangeCacheOfTwoInstance = new HashMap<>();
-    private Map<String, List<String>> disabledCurrencyPairMap = new HashMap<>();
-
-    private Dictionary<CurrencyPair, String, Exchange> exchangeDictionary = new Dictionary<>();
-    private Dictionary<String, Currency, Disposable> balanceSubscriptions = new Dictionary<>();
-    private Dictionary<String, CurrencyPair, Disposable> orderSubscriptions = new Dictionary<>();
-    private Dictionary<String, CurrencyPair, Disposable> orderBookSubscriptions = new Dictionary<>();
-
-    private Map<String, Exchange> exchangeMap = new HashMap<>();
-    private Map<String, Map<String, String>> javaConfig;
+    //...
 
     @Autowired
     ExchangeUtils exchangeUtils;
@@ -96,10 +72,13 @@ public class ExchangeManager {
     private List<String> exchangesWsMultipleInstance;
 
     @PostConstruct
-    private void init(...) {...}
+    private void init() {
+        //...
+    }
 
-    //TODO:
-    public ExchangeManager(...) {...}
+    public ExchangeManager(Map<String, Map<String, String>> config){
+        //...
+    }
 
     //...
 
@@ -117,7 +96,6 @@ public class ExchangeManager {
         return null;
     }
 
-    public synchronized StreamingExchange getStreamingExchangeCacheOfTwoInstance(...) {...}
 
     public synchronized Exchange getExchange(String exchangeName) {
         Map<String, String> config = javaConfig.get(exchangeName);

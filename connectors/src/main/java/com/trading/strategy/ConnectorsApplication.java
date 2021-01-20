@@ -19,18 +19,8 @@ import java.util.concurrent.TimeUnit;
 @SpringBootApplication
 public class ConnectorsApplication implements CommandLineRunner {
     private ExchangeManager exchangeManager;
-    private Environment env;
-    private EventsHandler eventsHandler;
-    private ArbitrageService arbitrageService;
 
-    @Value("${trading.exchanges.ws.multiple.instance}")
-    private List<String> exchangesWsMultipleInstance;
-    
-    @Value("${management.program.port}")
-    private int managementProgramPort;
-    
-    @Value("${server.port}")
-    private int serverPort;
+    //...
     
     public ConnectorsApplication(
             Environment env,

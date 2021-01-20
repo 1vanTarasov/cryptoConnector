@@ -7,19 +7,11 @@ import org.springframework.core.env.Environment;
 import java.util.*;
 
 public class ExchangeUtils {
-    static Map<String, Exchange> exchangeMap = Collections.synchronizedMap(new HashMap<>());
+    //...
     
     @Autowired
     ExchangeManager exchangeManager;
-    
-    public static void clearCache() {
-        exchangeMap.clear();
-    }
-    
-    public static void remove(String exchangeName) {
-        exchangeMap.remove(exchangeName);
-    }
-    
+
     public static Exchange createExchangeWithCache(String exchangeName, Map<String, String> config, boolean streaming) {
         if (exchangeMap.containsKey(exchangeName)) {
             return exchangeMap.get(exchangeName);
