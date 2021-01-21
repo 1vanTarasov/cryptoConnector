@@ -91,7 +91,6 @@ public class ExchangeManager {
             return exchange;
         } catch (Throwable e) {
             log.error("Failed : getStreamingExchange(), exchange: {}  with message {} ", exchangeName, e.getMessage());
-            e.printStackTrace();
         }
         return null;
     }

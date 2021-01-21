@@ -8,7 +8,6 @@ import org.wizardsdev.xchange.liquid.dto.account.LiquidWithdrawalRequestWrapper;
 
 import java.io.IOException;
 
-@Produces(MediaType.APPLICATION_JSON)
 public class LiquidAccountService extends LiquidAccountServiceRaw implements AccountService {
     public LiquidAccountService(Exchange exchange) {
         super(exchange);

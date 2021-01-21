@@ -29,8 +29,6 @@ public class LiquidAdapters {
                 productsRaw = marketDataServiceRaw.getProductsRaw();
             } catch (LiquidException e) {
                 throw LiquidErrorAdapter.adapt(e);
-            } catch (IOException e) {
-                e.printStackTrace();
             }
             productsRaw.forEach(liquidProduct ->
                     currencyMap.put(
